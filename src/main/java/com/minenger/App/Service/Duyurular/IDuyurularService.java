@@ -4,8 +4,7 @@ import com.minenger.App.Dto.Duyurular.DuyurularRequestDTO;
 import com.minenger.App.Dto.Duyurular.response.GetDuyurularApiResponse;
 
 public interface IDuyurularService {
+    GetDuyurularApiResponse getDuyuru(DuyurularRequestDTO duyurularRequestDTO);
 
-    void insertDuyuru(DuyurularRequestDTO requestDTO);
-
-    GetDuyurularApiResponse getDuyuru(DuyurularRequestDTO requestDTO);
+    GetDuyurularApiResponse postDuyurular(DuyurularRequestDTO requestDTO);
 }

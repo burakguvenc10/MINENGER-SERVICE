@@ -1,4 +1,4 @@
 package com.minenger.App.Controller;
 
-public class ReferanslarController {
+public class UyeController {
 }

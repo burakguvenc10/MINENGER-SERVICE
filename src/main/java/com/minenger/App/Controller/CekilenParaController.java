@@ -1,4 +1,4 @@
 package com.minenger.App.Controller;
 
-public class ParaÇekme {
+public class CekilenParaController {
 }

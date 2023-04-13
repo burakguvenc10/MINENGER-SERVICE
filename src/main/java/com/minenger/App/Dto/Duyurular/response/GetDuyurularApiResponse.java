@@ -11,11 +11,15 @@ import java.util.List;
 @Setter
 public class GetDuyurularApiResponse extends BaseApiResponseDTO {
 
-    private List<Duyuru> data;
+    private Duyuru data;
 
-    public  GetDuyurularApiResponse(String message, List<Duyuru> data){
-        super(message, data);
+    public  GetDuyurularApiResponse(String message, Duyuru data){
+        super(message);
         this.data = data;
+    }
+
+    public  GetDuyurularApiResponse(String message){
+        super(message);
     }
 
 
