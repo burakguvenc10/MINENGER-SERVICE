@@ -3,7 +3,7 @@ package com.minenger.App.Entity.Coin;
 import com.minenger.App.Entity.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 

@@ -2,8 +2,7 @@ package com.minenger.App.Entity;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
-
-import javax.persistence.Table;
+import jakarta.persistence.Table;
 
 public class BaseEntity {
 

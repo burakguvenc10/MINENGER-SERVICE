@@ -1,34 +1,31 @@
-package com.minenger.App.Service.Duyurular.impl;
+package com.minenger.App.Service.Duyurular;
 
 import com.minenger.App.Dto.Duyurular.DuyurularRequestDTO;
 import com.minenger.App.Dto.Duyurular.response.GetDuyurularApiResponse;
 import com.minenger.App.Entity.Duyurular.Duyuru;
-import com.minenger.App.Repository.Duyurular.jpaRepositories.DuyurularJpaRepository;
+import com.minenger.App.Repository.Duyurular.IDuyurularJpaRepository;
 import com.minenger.App.Util.MessagingConstants;
-import com.minenger.App.Repository.Duyurular.impl.IDuyurularRepository;
 import com.minenger.App.Service.Duyurular.IDuyurularService;
-import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class DuyurularService implements IDuyurularService {
 
     //private final ModelMapper modelMapper;
-    private IDuyurularRepository duyurularRepository;
-    private DuyurularJpaRepository duyurularJPARepository;
-
-    public DuyurularService(IDuyurularRepository duyurularRepository,
-                            DuyurularJpaRepository duyurularJPARepository) {
-        this.duyurularRepository = duyurularRepository;
-        this.duyurularJPARepository = duyurularJPARepository;
-    }
-
+    @Autowired
+    private IDuyurularJpaRepository duyurularRepository;
 
     @Override
     public GetDuyurularApiResponse getDuyuru(DuyurularRequestDTO duyurularRequestDTO) {
         GetDuyurularApiResponse getDuyurularApiResponse;
-
-        Duyuru data = duyurularRepository.getFindDuyuruList();
+        List<Duyuru> data = duyurularRepository.findByDuyuruList();
 
         getDuyurularApiResponse = new GetDuyurularApiResponse(MessagingConstants.SUCCESS_MESSAGE,data);
         return getDuyurularApiResponse;
@@ -36,10 +33,13 @@ public class DuyurularService implements IDuyurularService {
     @Override
     public GetDuyurularApiResponse postDuyurular(DuyurularRequestDTO requestDTO) {
         GetDuyurularApiResponse getDuyurularApiResponse = null;
-
-        Duyuru data = duyurularJPARepository.postDuyurularJpa(requestDTO);
+        /*Duyuru duyuru = new Duyuru();
+        duyuru.setId(requestDTO.getId());
+        duyuru.setBaslik(requestDTO.getBaslik());
+        duyuru.setIcerik(requestDTO.getIcerik());
+        Duyuru data = duyurularRepository.save(duyuru);
         getDuyurularApiResponse.setData(data);
-        getDuyurularApiResponse = new GetDuyurularApiResponse(MessagingConstants.SUCCESS_MESSAGE,data);
+        getDuyurularApiResponse = new GetDuyurularApiResponse(MessagingConstants.SUCCESS_MESSAGE,data);*/
 
         return getDuyurularApiResponse;
 

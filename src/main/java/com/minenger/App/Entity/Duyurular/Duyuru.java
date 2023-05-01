@@ -1,17 +1,13 @@
 package com.minenger.App.Entity.Duyurular;
 
 import com.minenger.App.Entity.BaseEntity;
-import lombok.Getter;
-import lombok.Setter;
-import javax.persistence.*;
-import java.io.Serializable;
-import java.sql.Timestamp;
+import lombok.Data;
+import jakarta.persistence.*;
 
-@Getter
-@Setter
 @Entity
+@Data
 @Table(name = "Duyurular")
-public class Duyuru extends BaseEntity implements Serializable {
+public class Duyuru extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
