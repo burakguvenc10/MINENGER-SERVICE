@@ -1,4 +1,4 @@
-package com.minenger.App.Dto.response;
+package com.minenger.App.Dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;

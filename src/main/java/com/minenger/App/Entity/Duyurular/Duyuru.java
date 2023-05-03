@@ -3,6 +3,7 @@ package com.minenger.App.Entity.Duyurular;
 import com.minenger.App.Entity.BaseEntity;
 import lombok.Data;
 import jakarta.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @Data
@@ -20,7 +21,7 @@ public class Duyuru extends BaseEntity{
     @Column(name = "ICERIK")
     private String icerik;
 
-    /*@Column(name = "DUYURU_TARIH")
-    private Timestamp duyuruTarihi;*/
+    @Column(name = "DUYURU_TARIH")
+    private Timestamp duyuruTarihi;
 
 }

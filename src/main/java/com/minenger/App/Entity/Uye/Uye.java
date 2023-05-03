@@ -1,17 +1,14 @@
-package com.minenger.App.Entity.Üye;
+package com.minenger.App.Entity.Uye;
 
 import com.minenger.App.Entity.BaseEntity;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import jakarta.persistence.*;
-import java.io.Serializable;
 import java.sql.Timestamp;
 
-@Getter
-@Setter
 @Entity
-@Table(name = "UYE", schema = "MINENGER")
-public class Üye extends BaseEntity implements Serializable {
+@Data
+@Table(name = "UYE")
+public class Uye extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +28,7 @@ public class Üye extends BaseEntity implements Serializable {
     private int tel;
 
     @Column(name = "REFERANS_KOD")
-    private int referanskodu;
+    private String referanskodu;
 
     @Column(name = "KAYIT_TARIH")
     private Timestamp kayitTarihi;
