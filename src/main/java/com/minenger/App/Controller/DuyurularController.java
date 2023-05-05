@@ -3,6 +3,7 @@ package com.minenger.App.Controller;
 import com.minenger.App.Dto.Duyurular.response.DuyurularApiResponse;
 import com.minenger.App.Service.Duyurular.IDuyurularService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -8,27 +8,36 @@ import com.minenger.App.Repository.Uye.UyeRepository;
 import com.minenger.App.Util.MessagingConstants;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 
 @Service
 public class UyeServices implements IUyeService {
-
     @Autowired
     private UyeRepository repository;
 
+    @Autowired
+    private IUyeRepository repositoryJpa;
+
+    @Autowired
+    private ModelMapper mapper;
+
     @Override
     public UyeApiResponse postSignup(UyeRequestDTO requestDTO) {
-        UyeApiResponse uyeApiResponse = null;
-        Uye uye = new Uye();
-        uye.setAdi(requestDTO.getAdi());
-        uye.setEmail(requestDTO.getEmail());
-        uye.setSifre(requestDTO.getSifre());
-        uye.setTel(requestDTO.getTel());
-        uye.setReferanskodu(requestDTO.getReferanskodu());
-        uye.setKayitTarihi(new Timestamp(System.currentTimeMillis()));
+        UyeApiResponse uyeApiResponse;
+        requestDTO.setKayitTarihi(new Timestamp(System.currentTimeMillis()));
+        Uye uye = mapper.map(requestDTO,Uye.class);
         repository.signUp(uye);
         uyeApiResponse = new UyeApiResponse(MessagingConstants.SUCCESS_MESSAGE, uye);
         return uyeApiResponse;
     }
+
+    public UyeApiResponse SignupUser(Long id){
+        UyeApiResponse uyeApiResponse;
+        Uye uye = repositoryJpa.findByUser(id);
+        uyeApiResponse = new UyeApiResponse(MessagingConstants.SUCCESS_MESSAGE, uye);
+        return uyeApiResponse;
+    }
+
 }

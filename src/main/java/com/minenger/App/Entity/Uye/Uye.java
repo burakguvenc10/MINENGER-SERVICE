@@ -25,7 +25,7 @@ public class Uye extends BaseEntity{
     private String sifre;
 
     @Column(name = "CEP_TEL")
-    private int tel;
+    private String tel;
 
     @Column(name = "REFERANS_KOD")
     private String referanskodu;

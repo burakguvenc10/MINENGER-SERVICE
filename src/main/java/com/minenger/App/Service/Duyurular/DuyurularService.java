@@ -5,6 +5,9 @@ import com.minenger.App.Entity.Duyurular.Duyuru;
 import com.minenger.App.Repository.Duyurular.IDuyurularJpaRepository;
 import com.minenger.App.Util.MessagingConstants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +22,7 @@ public class DuyurularService implements IDuyurularService {
     @Override
     public DuyurularApiResponse getDuyuru() {
         DuyurularApiResponse duyurularApiResponse;
-        List<Duyuru> data = duyurularRepository.findByDuyuruList();
+        List<Duyuru> data = duyurularRepository.findByDuyuruList(PageRequest.of(0, 6));
 
         duyurularApiResponse = new DuyurularApiResponse(MessagingConstants.SUCCESS_MESSAGE,data);
         return duyurularApiResponse;

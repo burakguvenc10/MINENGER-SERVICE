@@ -1,12 +1,11 @@
 package com.minenger.App.Dto.Uye;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+import javax.annotation.PropertyKey;
 import java.sql.Timestamp;
 
+@Data
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,7 +18,7 @@ public class UyeRequestDTO {
 
     private String sifre;
 
-    private int tel;
+    private String tel;
 
     private String referanskodu;
 

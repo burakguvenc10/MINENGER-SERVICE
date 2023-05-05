@@ -19,4 +19,10 @@ public class UyeApiResponse extends BaseApiResponseDTO {
         super(message);
         this.data = data;
     }
+
+    public UyeApiResponse(String message){
+        super(message);
+    }
+
+
 }
