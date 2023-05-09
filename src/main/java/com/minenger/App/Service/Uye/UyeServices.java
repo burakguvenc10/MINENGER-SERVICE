@@ -1,21 +1,24 @@
 package com.minenger.App.Service.Uye;
 
 import com.minenger.App.Dto.Uye.UyeRequestDTO;
+import com.minenger.App.Dto.Uye.response.ReferansKoduResponse;
 import com.minenger.App.Dto.Uye.response.UyeApiResponse;
+import com.minenger.App.Entity.Uye.User;
 import com.minenger.App.Entity.Uye.Uye;
 import com.minenger.App.Repository.Uye.IUyeRepository;
-import com.minenger.App.Repository.Uye.UyeRepository;
+import com.minenger.App.Repository.Uye.UserRepository;
 import com.minenger.App.Util.MessagingConstants;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import java.sql.Timestamp;
 
 @Service
 public class UyeServices implements IUyeService {
     @Autowired
-    private UyeRepository repository;
+    private UserRepository repository;
 
     @Autowired
     private IUyeRepository repositoryJpa;
@@ -23,21 +26,32 @@ public class UyeServices implements IUyeService {
     @Autowired
     private ModelMapper mapper;
 
+
     @Override
     public UyeApiResponse postSignup(UyeRequestDTO requestDTO) {
         UyeApiResponse uyeApiResponse;
         requestDTO.setKayitTarihi(new Timestamp(System.currentTimeMillis()));
-        Uye uye = mapper.map(requestDTO,Uye.class);
-        repository.signUp(uye);
-        uyeApiResponse = new UyeApiResponse(MessagingConstants.SUCCESS_MESSAGE, uye);
+        User dto = mapper.map(requestDTO,User.class);
+        User user = repository.Save(dto);
+        uyeApiResponse = new UyeApiResponse(MessagingConstants.SUCCESS_MESSAGE,user);
         return uyeApiResponse;
     }
 
-    public UyeApiResponse SignupUser(Long id){
-        UyeApiResponse uyeApiResponse;
+    @Override
+    public UyeApiResponse findByUser(Long id) {
+        UyeApiResponse Response;
         Uye uye = repositoryJpa.findByUser(id);
-        uyeApiResponse = new UyeApiResponse(MessagingConstants.SUCCESS_MESSAGE, uye);
-        return uyeApiResponse;
+        Response = new UyeApiResponse(MessagingConstants.SUCCESS_MESSAGE, uye);
+        return Response;
     }
+
+    @Override
+    public ReferansKoduResponse findReferansKod(Long id) {
+        ReferansKoduResponse Response;
+        String referansKodu = repositoryJpa.findByUserReferansKod(id);
+        Response = new ReferansKoduResponse(MessagingConstants.SUCCESS_MESSAGE, referansKodu);
+        return Response;
+    }
+
 
 }

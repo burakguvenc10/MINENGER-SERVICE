@@ -1,15 +1,15 @@
 package com.minenger.App.Entity.Kur;
 import com.minenger.App.Entity.BaseEntity;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-@Getter
-@Setter
+@Data
 @Entity
-@Table(name = "KUR", schema = "MINENGER")
+@Table(name = "KUR")
 public class Kur extends BaseEntity implements Serializable {
 
     @Id
@@ -21,9 +21,6 @@ public class Kur extends BaseEntity implements Serializable {
     private String coinAdi;
 
     @Column(name = "ORAN")
-    private String oran;
-
-    @Column(name = "DEGISIKLIK_TARIH")
-    private Timestamp degisiklikTarihi;
+    private double oran;
 
 }

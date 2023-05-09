@@ -22,7 +22,7 @@ public class DuyurularService implements IDuyurularService {
     @Override
     public DuyurularApiResponse getDuyuru() {
         DuyurularApiResponse duyurularApiResponse;
-        List<Duyuru> data = duyurularRepository.findByDuyuruList(PageRequest.of(0, 6));
+        List<Duyuru> data = duyurularRepository.findByDuyuruList(PageRequest.of(0, 10));
 
         duyurularApiResponse = new DuyurularApiResponse(MessagingConstants.SUCCESS_MESSAGE,data);
         return duyurularApiResponse;

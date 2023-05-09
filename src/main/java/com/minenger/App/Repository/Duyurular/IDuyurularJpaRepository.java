@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface IDuyurularJpaRepository extends JpaRepository<Duyuru,Long> {
 
-    @Query(value = "SELECT ID, BASLIK, ICERIK, DUYURU_TARIH FROM Duyurular d", nativeQuery = true)
+    @Query(value = "SELECT ID, BASLIK, ICERIK, DUYURU_TARIH FROM Duyurular d ORDER BY d.id DESC ", nativeQuery = true)
     List<Duyuru> findByDuyuruList(Pageable pageable);
 
 
