@@ -10,15 +10,16 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.minenger.App"})
 public class MinengerAppApplication{
+
+	@Bean
+	public ModelMapper mapper(){
+		return new ModelMapper();
+	}
+
 	public static void main(String[] args) {
 		System.setProperty("server.servlet.context-path", "/minenger/api");
 		SpringApplication app = new SpringApplication(MinengerAppApplication.class);
 		app.run(args);
-	}
-
-	@Bean
-	public ModelMapper modelMapper() {
-		return new ModelMapper();
 	}
 
 }

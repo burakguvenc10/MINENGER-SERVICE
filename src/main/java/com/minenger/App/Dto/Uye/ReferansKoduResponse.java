@@ -1,7 +1,6 @@
-package com.minenger.App.Dto.Uye.response;
+package com.minenger.App.Dto.Uye;
 
 import com.minenger.App.Dto.BaseApiResponseDTO;
-import com.minenger.App.Entity.Uye.Uye;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

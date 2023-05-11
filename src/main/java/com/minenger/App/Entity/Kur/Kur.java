@@ -21,6 +21,6 @@ public class Kur extends BaseEntity implements Serializable {
     private String coinAdi;
 
     @Column(name = "ORAN")
-    private double oran;
+    private Double oran;
 
 }

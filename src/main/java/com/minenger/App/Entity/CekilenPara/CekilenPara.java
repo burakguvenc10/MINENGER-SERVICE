@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @Entity
-@Table(name = "CEKILENPARA", schema = "MINENGER")
+@Table(name = "CEKILENPARA")
 public class CekilenPara extends BaseEntity implements Serializable {
 
     @Id
@@ -23,14 +23,14 @@ public class CekilenPara extends BaseEntity implements Serializable {
     @Column(name = "CEKILEN_DEGER")
     private int cekilenDeger;
 
+    @Column(name = "HESAP_NO")
+    private String hesapNo;
+
     @Column(name = "KULLANICI_ADI")
     private String adi;
 
     @Column(name = "EMAIL")
     private String email;
-
-    @Column(name = "HESAP_NO")
-    private String hesapNo;
 
     @Column(name = "DEGISIKLIK_TARIH")
     private Timestamp degisiklikTarihi;

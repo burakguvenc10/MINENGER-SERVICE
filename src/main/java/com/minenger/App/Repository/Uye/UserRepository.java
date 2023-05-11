@@ -14,8 +14,8 @@ public class UserRepository extends BaseRepository {
     private IUserRepository repository;
 
     @Transactional
-    public User Save(User user) {
-        return repository.save(user);
+    public User Save(User userDto) {
+        return repository.save(userDto);
     }
 
 

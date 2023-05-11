@@ -1,4 +1,4 @@
-package com.minenger.App.Dto.Duyurular.response;
+package com.minenger.App.Dto.Duyurular;
 
 import com.minenger.App.Dto.BaseApiResponseDTO;
 import com.minenger.App.Entity.Duyurular.Duyuru;

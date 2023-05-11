@@ -1,8 +1,8 @@
 package com.minenger.App.Controller;
 
 import com.minenger.App.Dto.Uye.UyeRequestDTO;
-import com.minenger.App.Dto.Uye.response.ReferansKoduResponse;
-import com.minenger.App.Dto.Uye.response.UyeApiResponse;
+import com.minenger.App.Dto.Uye.ReferansKoduResponse;
+import com.minenger.App.Dto.Uye.UyeApiResponse;
 import com.minenger.App.Service.Uye.IUyeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

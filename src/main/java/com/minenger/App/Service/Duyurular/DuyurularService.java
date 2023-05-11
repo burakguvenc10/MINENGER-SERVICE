@@ -1,13 +1,11 @@
 package com.minenger.App.Service.Duyurular;
 
-import com.minenger.App.Dto.Duyurular.response.DuyurularApiResponse;
+import com.minenger.App.Dto.Duyurular.DuyurularApiResponse;
 import com.minenger.App.Entity.Duyurular.Duyuru;
 import com.minenger.App.Repository.Duyurular.IDuyurularJpaRepository;
 import com.minenger.App.Util.MessagingConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

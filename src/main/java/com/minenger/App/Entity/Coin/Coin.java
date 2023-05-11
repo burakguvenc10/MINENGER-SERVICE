@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 
 @Data
 @Entity
-@Table(name = "COIN", schema = "MINENGER")
+@Table(name = "COIN")
 public class Coin extends BaseEntity implements Serializable {
 
     @Id
@@ -22,7 +22,7 @@ public class Coin extends BaseEntity implements Serializable {
     private String coinAdi;
 
     @Column(name = "KAZILAN_DEGER")
-    private String kazilanDeger;
+    private Double kazilanDeger;
 
     @Column(name = "DEGISIKLIK_TARIH")
     private Timestamp degisiklikTarihi;

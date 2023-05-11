@@ -1,8 +1,8 @@
 package com.minenger.App.Service.Uye;
 
 import com.minenger.App.Dto.Uye.UyeRequestDTO;
-import com.minenger.App.Dto.Uye.response.ReferansKoduResponse;
-import com.minenger.App.Dto.Uye.response.UyeApiResponse;
+import com.minenger.App.Dto.Uye.ReferansKoduResponse;
+import com.minenger.App.Dto.Uye.UyeApiResponse;
 import com.minenger.App.Entity.Uye.User;
 import com.minenger.App.Entity.Uye.Uye;
 import com.minenger.App.Repository.Uye.IUyeRepository;
@@ -11,7 +11,6 @@ import com.minenger.App.Util.MessagingConstants;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.Timestamp;
 
@@ -31,8 +30,8 @@ public class UyeServices implements IUyeService {
     public UyeApiResponse postSignup(UyeRequestDTO requestDTO) {
         UyeApiResponse uyeApiResponse;
         requestDTO.setKayitTarihi(new Timestamp(System.currentTimeMillis()));
-        User dto = mapper.map(requestDTO,User.class);
-        User user = repository.Save(dto);
+        User userDto = mapper.map(requestDTO,User.class);
+        User user = repository.Save(userDto);
         uyeApiResponse = new UyeApiResponse(MessagingConstants.SUCCESS_MESSAGE,user);
         return uyeApiResponse;
     }
