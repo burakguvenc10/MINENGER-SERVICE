@@ -1,13 +1,10 @@
 package com.minenger.App.Dto.Duyurular;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import java.sql.Timestamp;
+import lombok.*;
 
 @Getter
 @Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class DuyurularRequestDTO {
