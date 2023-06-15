@@ -3,6 +3,7 @@ package com.minenger.App.Controller;
 import com.minenger.App.Dto.Uye.UyeRequestDTO;
 import com.minenger.App.Dto.Uye.ReferansKoduResponse;
 import com.minenger.App.Dto.Uye.UyeApiResponse;
+import com.minenger.App.Entity.Uye.User;
 import com.minenger.App.Service.Uye.IUyeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,8 @@ public class UyeController {
     private IUyeService uyeService;
 
     @PostMapping(value = "/signup")
-    public ResponseEntity<UyeApiResponse> postSignup(@Validated @RequestBody UyeRequestDTO requestDTO){
-        UyeApiResponse responseDTO = this.uyeService.postSignup(requestDTO);
+    public ResponseEntity<User> postSignup(@Validated @RequestBody UyeRequestDTO requestDTO){
+        User responseDTO = this.uyeService.postSignup(requestDTO);
         return ResponseEntity.ok(responseDTO);
     }
 

@@ -27,13 +27,11 @@ public class UyeServices implements IUyeService {
 
 
     @Override
-    public UyeApiResponse postSignup(UyeRequestDTO requestDTO) {
-        UyeApiResponse uyeApiResponse;
+    public User postSignup(UyeRequestDTO requestDTO) {
         requestDTO.setKayitTarihi(new Timestamp(System.currentTimeMillis()));
         User userDto = mapper.map(requestDTO,User.class);
         User user = repository.Save(userDto);
-        uyeApiResponse = new UyeApiResponse(MessagingConstants.SUCCESS_MESSAGE,user);
-        return uyeApiResponse;
+        return user;
     }
 
     @Override

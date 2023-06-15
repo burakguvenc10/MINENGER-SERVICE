@@ -26,13 +26,11 @@ public class CoinService implements ICoinService{
 
 
     @Override
-    public CoinApiResponse postKazilanCoin(CoinRequestDTO requestDTO) {
-        CoinApiResponse coinApiResponse;
+    public Coin postKazilanCoin(CoinRequestDTO requestDTO) {
         requestDTO.setDegisiklikTarihi(new Timestamp(System.currentTimeMillis()));
         Coin userDto = mapper.map(requestDTO,Coin.class);
-        Coin user = coinRepository.saveKazilanCoin(userDto);
-        coinApiResponse = new CoinApiResponse(MessagingConstants.SUCCESS_MESSAGE,user);
-        return coinApiResponse;
+        Coin kazilanCoin = coinRepository.saveKazilanCoin(userDto);
+        return kazilanCoin;
     }
 
     @Override

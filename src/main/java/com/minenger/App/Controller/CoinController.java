@@ -2,6 +2,7 @@ package com.minenger.App.Controller;
 
 import com.minenger.App.Dto.Coin.CoinApiResponse;
 import com.minenger.App.Dto.Coin.CoinRequestDTO;
+import com.minenger.App.Entity.Coin.Coin;
 import com.minenger.App.Service.Coin.ICoinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +16,8 @@ public class CoinController {
     private ICoinService coinService;
 
     @PostMapping(value = "/postcoin")
-    public ResponseEntity<CoinApiResponse> postCoin(@Validated @RequestBody CoinRequestDTO requestDTO){
-        CoinApiResponse responseDTO = this.coinService.postKazilanCoin(requestDTO);
+    public ResponseEntity<Coin> postCoin(@Validated @RequestBody CoinRequestDTO requestDTO){
+        Coin responseDTO = this.coinService.postKazilanCoin(requestDTO);
         return ResponseEntity.ok(responseDTO);
     }
 

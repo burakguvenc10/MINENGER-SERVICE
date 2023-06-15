@@ -16,20 +16,9 @@ public class UyeApiResponse extends BaseApiResponseDTO {
 
     private Uye uye;
 
-    private User user;
-
     public UyeApiResponse(String message, Uye uye) {
         super(message);
         this.uye = uye;
-    }
-
-    public UyeApiResponse(String message, User user){
-        super(message);
-        this.user = user;
-    }
-
-    public UyeApiResponse(String message){
-        super(message);
     }
 
 }
