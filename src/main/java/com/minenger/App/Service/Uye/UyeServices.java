@@ -1,8 +1,7 @@
 package com.minenger.App.Service.Uye;
 
-import com.minenger.App.Dto.Uye.UyeRequestDTO;
-import com.minenger.App.Dto.Uye.ReferansKoduResponse;
-import com.minenger.App.Dto.Uye.UyeApiResponse;
+import com.minenger.App.Dto.Uye.*;
+import com.minenger.App.Entity.Uye.LoginUser;
 import com.minenger.App.Entity.Uye.User;
 import com.minenger.App.Entity.Uye.Uye;
 import com.minenger.App.Repository.Uye.IUyeRepository;
@@ -27,11 +26,23 @@ public class UyeServices implements IUyeService {
 
 
     @Override
-    public User postSignup(UyeRequestDTO requestDTO) {
+    public User Signup(UyeRequestDTO requestDTO) {
         requestDTO.setKayitTarihi(new Timestamp(System.currentTimeMillis()));
         User userDto = mapper.map(requestDTO,User.class);
         User user = repository.Save(userDto);
         return user;
+    }
+
+    @Override
+    public LoginApiResponse Login(LoginRequestDTO requestDTO) {
+        Uye uye = repositoryJpa.findByUser(requestDTO.getId());
+        if (uye != null){
+            LoginUser user = repository.Login();
+            return new LoginApiResponse(MessagingConstants.SUCCESS_MESSAGE,user);
+        }
+        else{
+            return new LoginApiResponse(MessagingConstants.ERROR_LOGIN);
+        }
     }
 
     @Override

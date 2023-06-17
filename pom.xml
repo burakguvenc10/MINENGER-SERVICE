@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.minenger</groupId>
 	<artifactId>App</artifactId>
-	<version>1.0.8</version>
+	<version>1.0.9</version>
 	<name>Minenger App</name>
 	<description>Minenger App Project</description>
 	<properties>

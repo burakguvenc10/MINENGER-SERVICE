@@ -1,13 +1,15 @@
 package com.minenger.App.Service.Uye;
 
-import com.minenger.App.Dto.Uye.UyeRequestDTO;
-import com.minenger.App.Dto.Uye.ReferansKoduResponse;
-import com.minenger.App.Dto.Uye.UyeApiResponse;
+import com.minenger.App.Dto.Uye.*;
+import com.minenger.App.Entity.Uye.LoginUser;
 import com.minenger.App.Entity.Uye.User;
+import com.minenger.App.Entity.Uye.Uye;
 
 public interface IUyeService {
 
-    User postSignup(UyeRequestDTO requestDTO);
+    User Signup(UyeRequestDTO requestDTO);
+
+    LoginApiResponse Login(LoginRequestDTO requestDTO);
 
     UyeApiResponse findByUser(Long id);
 

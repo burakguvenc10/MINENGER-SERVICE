@@ -12,8 +12,14 @@ public class KurController {
     private IKurService kurService;
 
     @GetMapping(value = "/findCoin")
-    public ResponseEntity<KurApiResponse> findUser(@RequestParam Long id){
+    public ResponseEntity<KurApiResponse> findKur(@RequestParam Long id){
         KurApiResponse responseDTO = this.kurService.findCoinKur(id);
+        return ResponseEntity.ok(responseDTO);
+    }
+
+    @GetMapping(value = "/findCoinByName")
+    public ResponseEntity<KurApiResponse> findKurByName(@RequestParam String coinAdi){
+        KurApiResponse responseDTO = this.kurService.findCoinKurByName(coinAdi);
         return ResponseEntity.ok(responseDTO);
     }
 

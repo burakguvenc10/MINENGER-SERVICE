@@ -13,4 +13,8 @@ public interface IKurRepository extends JpaRepository<Kur, Long> {
     @Query(value = "SELECT ID, COIN_ADI, ORAN " +
             "FROM KUR WHERE ID = :Id ", nativeQuery = true)
     Kur findByCoin(@Param("Id") Long id);
+
+    @Query(value = "SELECT ID, COIN_ADI, ORAN " +
+            "FROM KUR WHERE COIN_ADI = :coinName ", nativeQuery = true)
+    Kur findCoinByName(@Param("coinName") String coinAdi);
 }

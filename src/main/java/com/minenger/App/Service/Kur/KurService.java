@@ -20,4 +20,12 @@ public class KurService implements IKurService{
         Response = new KurApiResponse(MessagingConstants.SUCCESS_MESSAGE, kur);
         return Response;
     }
+
+    @Override
+    public KurApiResponse findCoinKurByName(String coinAdi) {
+        KurApiResponse Response;
+        Kur kur = kurRepositoryJPA.findCoinByName(coinAdi);
+        Response = new KurApiResponse(MessagingConstants.SUCCESS_MESSAGE, kur);
+        return Response;
+    }
 }
