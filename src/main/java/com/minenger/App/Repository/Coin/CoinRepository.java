@@ -16,4 +16,9 @@ public class CoinRepository extends BaseRepository {
     public Coin saveKazilanCoin(Coin coinDto) {
         return repository.save(coinDto);
     }
+
+    public Coin getKazilanCoin(String coinAdi) {
+        return repository.findByCoinName(coinAdi);
+    }
+
 }

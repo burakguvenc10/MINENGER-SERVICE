@@ -13,5 +13,8 @@ public interface ICoinRepository extends JpaRepository<Coin,Long> {
             "FROM COIN WHERE ID = :Id ", nativeQuery = true)
     Coin findByCoin(@Param("Id") Long id);
 
+    @Query(value = "SELECT ID, COIN_ADI, KAZILAN_DEGER, DEGISIKLIK_TARIH " +
+            "FROM COIN WHERE COIN_ADI = :coin ", nativeQuery = true)
+    Coin findByCoinName(@Param("coin") String coinName);
 
 }

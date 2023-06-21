@@ -17,13 +17,10 @@ public class CoinService implements ICoinService{
 
     @Autowired
     private ICoinRepository coinRepositoryJpa;
-
     @Autowired
     private CoinRepository coinRepository;
-
     @Autowired
     private ModelMapper mapper;
-
 
     @Override
     public Coin postKazilanCoin(CoinRequestDTO requestDTO) {
