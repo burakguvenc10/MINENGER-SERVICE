@@ -36,7 +36,7 @@ public class UyeServices implements IUyeService {
     @Override
     public LoginApiResponse Login(LoginRequestDTO requestDTO) {
         Uye uye = repositoryJpa.findByUser(requestDTO.getId());
-        if (uye != null){
+        if (uye.getEmail().toString() != requestDTO.getEmail().toString()){
             LoginUser user = repository.Login();
             return new LoginApiResponse(MessagingConstants.SUCCESS_MESSAGE,user);
         }
@@ -52,6 +52,13 @@ public class UyeServices implements IUyeService {
         Response = new UyeApiResponse(MessagingConstants.SUCCESS_MESSAGE, uye);
         return Response;
     }
+    @Override
+    public UyeApiResponse findByUserMail(String mail) {
+        UyeApiResponse Response;
+        Uye uye = repositoryJpa.findByEmail(mail);
+        Response = new UyeApiResponse(MessagingConstants.SUCCESS_MESSAGE, uye);
+        return Response;
+    }
 
     @Override
     public ReferansKoduResponse findReferansKod(Long id) {
@@ -60,6 +67,5 @@ public class UyeServices implements IUyeService {
         Response = new ReferansKoduResponse(MessagingConstants.SUCCESS_MESSAGE, referansKodu);
         return Response;
     }
-
 
 }

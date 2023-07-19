@@ -1,9 +1,7 @@
 package com.minenger.App.Controller;
 
 import com.minenger.App.Dto.Uye.*;
-import com.minenger.App.Entity.Uye.LoginUser;
 import com.minenger.App.Entity.Uye.User;
-import com.minenger.App.Entity.Uye.Uye;
 import com.minenger.App.Service.Uye.IUyeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +30,12 @@ public class UyeController {
     @GetMapping(value = "/signup/user")
     public ResponseEntity<UyeApiResponse> findUser(@RequestParam Long id){
         UyeApiResponse responseDTO = this.uyeService.findByUser(id);
+        return ResponseEntity.ok(responseDTO);
+    }
+
+    @GetMapping(value = "/signup/user/mail")
+    public ResponseEntity<UyeApiResponse> findUserMail(@RequestParam String mail){
+        UyeApiResponse responseDTO = this.uyeService.findByUserMail(mail);
         return ResponseEntity.ok(responseDTO);
     }
 

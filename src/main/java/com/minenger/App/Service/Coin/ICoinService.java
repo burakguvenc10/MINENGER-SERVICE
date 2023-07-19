@@ -9,4 +9,6 @@ public interface ICoinService {
 
     CoinApiResponse findByCoin(Long id);
 
+    CoinApiResponse findByCoinName(String coinName);
+
 }

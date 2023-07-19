@@ -37,4 +37,12 @@ public class CoinService implements ICoinService{
         Response = new CoinApiResponse(MessagingConstants.SUCCESS_MESSAGE, coin);
         return Response;
     }
+
+    @Override
+    public CoinApiResponse findByCoinName(String coinName) {
+        CoinApiResponse Response;
+        Coin coin = coinRepositoryJpa.findByCoinName(coinName);
+        Response = new CoinApiResponse(MessagingConstants.SUCCESS_MESSAGE, coin);
+        return Response;
+    }
 }

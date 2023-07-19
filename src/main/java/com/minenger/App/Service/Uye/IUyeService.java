@@ -1,9 +1,7 @@
 package com.minenger.App.Service.Uye;
 
 import com.minenger.App.Dto.Uye.*;
-import com.minenger.App.Entity.Uye.LoginUser;
 import com.minenger.App.Entity.Uye.User;
-import com.minenger.App.Entity.Uye.Uye;
 
 public interface IUyeService {
 
@@ -12,6 +10,8 @@ public interface IUyeService {
     LoginApiResponse Login(LoginRequestDTO requestDTO);
 
     UyeApiResponse findByUser(Long id);
+
+    UyeApiResponse findByUserMail(String mail);
 
     ReferansKoduResponse findReferansKod(Long id);
 }

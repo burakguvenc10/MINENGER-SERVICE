@@ -27,4 +27,10 @@ public class CoinController {
         return ResponseEntity.ok(responseDTO);
     }
 
+    @GetMapping(value = "/findcoinByName")
+    public ResponseEntity<CoinApiResponse> findCoin(@RequestParam String coinName){
+        CoinApiResponse responseDTO = this.coinService.findByCoinName(coinName);
+        return ResponseEntity.ok(responseDTO);
+    }
+
 }

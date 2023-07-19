@@ -13,6 +13,10 @@ public interface IUyeRepository extends JpaRepository<Uye, Long> {
             "FROM UYE WHERE ID = :Id ", nativeQuery = true)
     Uye findByUser(@Param("Id") Long id);
 
+    @Query(value = "SELECT ID, KULLANICI_ADI, EMAIL " +
+            "FROM UYE WHERE EMAIL = :Mail ", nativeQuery = true)
+    Uye findByEmail(@Param("Mail") String mail);
+
     @Query(value = "SELECT REFERANS_KOD " +
             "FROM UYE WHERE ID = :Id ", nativeQuery = true)
     String findByUserReferansKod(@Param("Id") Long id);

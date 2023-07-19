@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.minenger</groupId>
 	<artifactId>App</artifactId>
-	<version>1.0.10</version>
+	<version>1.0.11</version>
 	<name>Minenger App</name>
 	<description>Minenger App Project</description>
 	<properties>
@@ -34,6 +34,22 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.30</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.11.5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.11.5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.11.5</version>
 		</dependency>
 
 		<dependency>
