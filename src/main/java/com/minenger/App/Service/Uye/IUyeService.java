@@ -14,4 +14,6 @@ public interface IUyeService {
     UyeApiResponse findByUserMail(String mail);
 
     ReferansKoduResponse findReferansKod(Long id);
+
+    User updatePassword(UpdatePasswordRequestDTO updatePasswordRequestDTO);
 }

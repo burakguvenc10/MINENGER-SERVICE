@@ -45,4 +45,10 @@ public class UyeController {
         return ResponseEntity.ok(responseDTO);
     }
 
+    @PutMapping(value = "/signup/update/password")
+    public ResponseEntity<User> updatedPassword(@Validated @RequestBody UpdatePasswordRequestDTO updatepasswordRequestDTO){
+        User responseDTO = this.uyeService.updatePassword(updatepasswordRequestDTO);
+        return ResponseEntity.ok(responseDTO);
+    }
+
 }

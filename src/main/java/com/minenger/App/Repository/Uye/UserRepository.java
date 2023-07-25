@@ -23,5 +23,11 @@ public class UserRepository extends BaseRepository {
         return null;
     }
 
+    @Transactional
+    public User UpdatePassword (User newPassword) {
+        return userRepository.save(newPassword);
+    }
+
+
 
 }

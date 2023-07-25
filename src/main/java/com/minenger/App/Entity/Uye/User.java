@@ -34,4 +34,7 @@ public class User extends BaseEntity implements Serializable {
     @Column(name = "KAYIT_TARIH")
     private Timestamp kayitTarihi;
 
+    @Column(name = "GUNCELLEME_TARIH")
+    private Timestamp guncellemeTarihi;
+
 }

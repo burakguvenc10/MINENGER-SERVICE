@@ -4,6 +4,7 @@ import com.minenger.App.Dto.Uye.*;
 import com.minenger.App.Entity.Uye.LoginUser;
 import com.minenger.App.Entity.Uye.User;
 import com.minenger.App.Entity.Uye.Uye;
+import com.minenger.App.Repository.Uye.IUserRepository;
 import com.minenger.App.Repository.Uye.IUyeRepository;
 import com.minenger.App.Repository.Uye.UserRepository;
 import com.minenger.App.Util.MessagingConstants;
@@ -20,6 +21,9 @@ public class UyeServices implements IUyeService {
 
     @Autowired
     private IUyeRepository repositoryJpa;
+
+    @Autowired
+    private IUserRepository user_repositoryJpa;
 
     @Autowired
     private ModelMapper mapper;
@@ -66,6 +70,15 @@ public class UyeServices implements IUyeService {
         String referansKodu = repositoryJpa.findByUserReferansKod(id);
         Response = new ReferansKoduResponse(MessagingConstants.SUCCESS_MESSAGE, referansKodu);
         return Response;
+    }
+
+    @Override
+    public User updatePassword(UpdatePasswordRequestDTO updatePasswordRequestDTO) {
+        User userDto = user_repositoryJpa.findByEmail(updatePasswordRequestDTO.getEmail());
+        userDto.setSifre(updatePasswordRequestDTO.getSifre());
+        userDto.setGuncellemeTarihi(new Timestamp(System.currentTimeMillis()));
+        User user = repository.UpdatePassword(userDto);
+        return user;
     }
 
 }
