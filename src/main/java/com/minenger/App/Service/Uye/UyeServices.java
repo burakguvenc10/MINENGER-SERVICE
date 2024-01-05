@@ -39,8 +39,8 @@ public class UyeServices implements IUyeService {
 
     @Override
     public LoginApiResponse Login(LoginRequestDTO requestDTO) {
-        Uye uye = repositoryJpa.findByUser(requestDTO.getId());
-        if (uye.getEmail().toString() != requestDTO.getEmail().toString()){
+        User uye = user_repositoryJpa.findByEmail(requestDTO.getEmail());
+        if (uye.getEmail().equals(requestDTO.getEmail()) && uye.getSifre().equals(requestDTO.getSifre())){
             LoginUser user = repository.Login();
             return new LoginApiResponse(MessagingConstants.SUCCESS_MESSAGE,user);
         }
